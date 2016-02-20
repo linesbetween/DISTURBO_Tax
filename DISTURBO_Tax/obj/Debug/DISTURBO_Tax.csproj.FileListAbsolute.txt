@@ -1,0 +1,12 @@
+D:\data\course\SP2016\CIT287-OOP\DISTURBO_Tax\DISTURBO_Tax\bin\Debug\DISTURBO_Tax.exe.config
+D:\data\course\SP2016\CIT287-OOP\DISTURBO_Tax\DISTURBO_Tax\bin\Debug\DISTURBO_Tax.exe
+D:\data\course\SP2016\CIT287-OOP\DISTURBO_Tax\DISTURBO_Tax\bin\Debug\DISTURBO_Tax.pdb
+D:\data\course\SP2016\CIT287-OOP\DISTURBO_Tax\DISTURBO_Tax\obj\Debug\DISTURBO_Tax.csprojResolveAssemblyReference.cache
+D:\data\course\SP2016\CIT287-OOP\DISTURBO_Tax\DISTURBO_Tax\obj\Debug\DISTURBO_Tax.frmDataEntry.resources
+D:\data\course\SP2016\CIT287-OOP\DISTURBO_Tax\DISTURBO_Tax\obj\Debug\DISTURBO_Tax.frmWelcom.resources
+D:\data\course\SP2016\CIT287-OOP\DISTURBO_Tax\DISTURBO_Tax\obj\Debug\DISTURBO_Tax.Properties.Resources.resources
+D:\data\course\SP2016\CIT287-OOP\DISTURBO_Tax\DISTURBO_Tax\obj\Debug\DISTURBO_Tax.csproj.GenerateResource.Cache
+D:\data\course\SP2016\CIT287-OOP\DISTURBO_Tax\DISTURBO_Tax\obj\Debug\DISTURBO_Tax.exe
+D:\data\course\SP2016\CIT287-OOP\DISTURBO_Tax\DISTURBO_Tax\obj\Debug\DISTURBO_Tax.pdb
+D:\data\course\SP2016\CIT287-OOP\DISTURBO_Tax\DISTURBO_Tax\obj\Debug\DISTURBO_Tax.frmResult.resources
+D:\data\course\SP2016\CIT287-OOP\DISTURBO_Tax\DISTURBO_Tax\obj\Debug\DISTURBO_Tax.frmList.resources
