@@ -56,48 +56,51 @@ namespace DISTURBO_Tax
         private void btnCalc_Click(object sender, EventArgs e)
         {   
             //validate entry
-            //TODO
+            if (IsValidate())
+            {
 
-            //get values from text box
-            string name = txtName.Text;
-            int ssn = Convert.ToInt32(txtSSN.Text);
+                //get values from text box
+                string name = txtName.Text;
+                int ssn = Convert.ToInt32(txtSSN.Text);
 
-            int exempt = Convert.ToInt32(txtExempt.Text);
-            float earn = (float)Convert.ToDouble(txtEarn.Text);
-            float withheld = (float)Convert.ToDouble(txtWithheld.Text);
-            float capital = (float)Convert.ToDouble(txtCapital.Text);
-            float estate = (float)Convert.ToDouble(txtEstate.Text);
-            float excise = (float)Convert.ToDouble(txtExcise.Text);
-            float med = (float)Convert.ToDouble(txtMed.Text);
+                int exempt = Convert.ToInt32(txtExempt.Text);
+                float earn = (float)Convert.ToDouble(txtEarn.Text);
+                float withheld = (float)Convert.ToDouble(txtWithheld.Text);
+                float capital = (float)Convert.ToDouble(txtCapital.Text);
+                float estate = (float)Convert.ToDouble(txtEstate.Text);
+                float excise = (float)Convert.ToDouble(txtExcise.Text);
+                float med = (float)Convert.ToDouble(txtMed.Text);
 
-            //calculate and assign values to resultset 
-            resultSet = calculate(exempt, earn, withheld, capital, estate, excise, med);
+                //calculate and assign values to resultset 
+                resultSet = calculate(exempt, earn, withheld, capital, estate, excise, med);
 
-            /* display result in this form*/
-            txtBoxAdjGross.Text = Convert.ToString (resultSet.getAdjGross());
-            txtBoxTax.Text = Convert.ToString(resultSet.getTax());
-            txtBoxWithheld.Text = Convert.ToString(resultSet.getWithheld());
-            txtBoxPenalty.Text = Convert.ToString(resultSet.getPenalty());
-            txtBoxOwed.Text = Convert.ToString(resultSet.getOwed());
-            txtBoxRefund.Text = Convert.ToString(resultSet.getRefund());
+                /* display result in this form*/
+                txtBoxAdjGross.Text = Convert.ToString(resultSet.getAdjGross());
+                txtBoxTax.Text = Convert.ToString(resultSet.getTax());
+                txtBoxWithheld.Text = Convert.ToString(resultSet.getWithheld());
+                txtBoxPenalty.Text = Convert.ToString(resultSet.getPenalty());
+                txtBoxOwed.Text = Convert.ToString(resultSet.getOwed());
+                txtBoxRefund.Text = Convert.ToString(resultSet.getRefund());
 
-            //send result to formResult to display
-            frmResult formResult = new frmResult();
+                //send result to formResult to display
+                frmResult formResult = new frmResult();
 
-            passResultSet(formResult, resultSet);
+                passResultSet(formResult, resultSet);
 
 
-            //NOT WORKING- formResult.Tag = resultSet;            
-            DialogResult selectedButton = formResult.ShowDialog();
-            if (selectedButton == DialogResult.OK) {
-                
+                //NOT WORKING- formResult.Tag = resultSet;            
+                DialogResult selectedButton = formResult.ShowDialog();
+                if (selectedButton == DialogResult.OK)
+                {
 
-                // store result into record list
-                Record record = new Record(ssn, name, resultSet.getOwed(), resultSet.getRefund());
-                list.Add(record);
 
-                // clear data entry
-                //TODO
+                    // store result into record list
+                    Record record = new Record(ssn, name, resultSet.getOwed(), resultSet.getRefund());
+                    list.Add(record);
+
+                    // clear data entry
+                    //TODO
+                }
             }
         }
 
@@ -121,73 +124,132 @@ namespace DISTURBO_Tax
             formList.ShowDialog();
         }
 
+
         /*
-        public bool IsValidData()
+         *  Data validate
+         */
+        public bool IsValidate()
         {
-            return
-                // Validate the Monthly Investment text box
-                IsPresent(txtMonthlyInvestment, "Monthly Investment") &&
-                IsDecimal(txtMonthlyInvestment, "Monthly Investment") &&
-                IsWithinRange(txtMonthlyInvestment, "Monthly Investment", 1, 1000) &&
+            
+            //Check present for all required fields
+            string requried = IsPresentMust();
+            if (requried != "")
+            {
+                MessageBox.Show(requried, "Entry Error");
+                return false;
+            }
+            // Check present for optional fields or fill in 0
+            IsPresentOpt();
 
-                // Validate the Yearly Interest Rate text box
-                IsPresent(txtInterestRate, "Yearly Interest Rate") &&
-                IsDecimal(txtInterestRate, "Yearly Interest Rate") &&
-                IsWithinRange(txtInterestRate, "Yearly Interest Rate", 1, 20) &&
+            // Check is decimal 
+            string deci = IsDecimalAll();
+            if (deci != "")
+            {
+                MessageBox.Show(deci, "Entry Error");
+                return false;
+            }
 
-                // Validate the Number of Years text box
-                IsPresent(txtYears, "Number of Years") &&
-                IsInt32(txtYears, "Number of Years") &&
-                IsWithinRange(txtYears, "Number of Years", 1, 40);
+            return true;
         }
-        */
-        public bool IsPresent(TextBox textBox, string name)
+        
+        public string IsPresentMust()
+        {
+
+            string msg =
+            IsPresent(txtName, "Name") +
+            IsPresent(txtAddr, "Address") +
+            IsPresent(txtCity, "City") +
+            IsSelected(cmbState, "State") +
+            IsPresent(txtZip, "Zip code") +
+            IsPresent(txtSSN, "SSN") +
+            IsPresent(txtExempt, "Exemption") +
+            IsPresent(txtEarn, "Grossing Earning") +
+            IsPresent(txtWithheld, "Federal Tax Withheld");          
+
+                return msg;
+        }
+
+        public void IsPresentOpt()
+        {           
+            if (txtCapital.Text == "")
+            {
+                txtCapital.Text = "0";
+            }
+
+            if (txtEstate.Text == "")
+            {
+                txtEstate.Text = "0";
+            }
+
+            if (txtExcise.Text == "")
+            {
+                txtExcise.Text = "0";
+            }
+
+            if (txtMed.Text == "")
+            {
+                txtMed.Text = "0";
+            }
+            
+        }
+
+        public string IsPresent(TextBox textBox, string name)
         {
             if (textBox.Text == "")
             {
-                MessageBox.Show(name + " is a required field.", "Entry Error");
-                textBox.Focus();
-                return false;
+                string msg = name + " is required.\n";
+                return msg;
             }
-            return true;
+            return "";
         }
 
-        public bool IsInt32(TextBox textBox, string name)
+        public string IsSelected(ComboBox comb,string name)
         {
-            int number = 0;
-            if (Int32.TryParse(textBox.Text, out number))
+            if (comb.SelectedIndex == -1)
+                return name + " must be selected.\n ";
+            else
+                return "";
+        }
+
+        public string IsDecimal(TextBox textBox, string name)
+        {
+            decimal number = 0;
+            if (Decimal.TryParse(textBox.Text, out number))
             {
-                return true;
+                return "";
             }
             else
             {
-                MessageBox.Show(name + " must be an integer.", "Entry Error");
-                textBox.Focus();
-                return false;
+                return name+" must be a number.\n";
             }
         }
 
-        public bool IsWithinRange(TextBox textBox, string name,
-            decimal min, decimal max)
+        public string IsDecimalAll()
         {
-            decimal number = Convert.ToDecimal(textBox.Text);
-            if (number < min || number > max)
-            {
-                MessageBox.Show(name + " must be between " + min
-                    + " and " + max + ".", "Entry Error");
-                textBox.Focus();
-                return false;
-            }
-            return true;
+            string msg=
+            IsDecimal(txtExempt, "Exemption") +
+            IsDecimal(txtEarn, "Grossing Earning") +
+            IsDecimal(txtWithheld, "Federal Tax Withheld") +
+            IsDecimal(txtCapital, "Capital gain/loss") +
+            IsDecimal(txtEstate, "Estate tax") +
+            IsDecimal(txtExcise, "Excise tax") +
+            IsDecimal(txtMed, "Medical cost");
+
+            return msg;
         }
 
+
+        /*
+       *  Calculate
+       */
+       
         private ResultSet calculate(int exempt, float earn, float withheld, float capital, float estate, 
                                     float excise, float med)
         {   
             int adjGross, penalty, owed, refund; 
             float tax, withheldW2 ;
 
-            withheldW2 = withheld; //???
+            withheldW2 = withheld; 
             adjGross = round ((float) (earn - exempt*1000 - estate*0.25 - excise*0.25 - med*0.08 + capital*0.15));
 
             if (adjGross > 0 && adjGross <=999.99 )
@@ -266,6 +328,10 @@ namespace DISTURBO_Tax
         }
             
     }
+
+    /*
+       *  Classes for data storage
+       */
 
 
     public class Record

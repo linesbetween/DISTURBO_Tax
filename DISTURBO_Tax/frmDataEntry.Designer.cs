@@ -33,11 +33,11 @@
             this.txtName = new System.Windows.Forms.TextBox();
             this.lblAddr = new System.Windows.Forms.Label();
             this.txtAddr = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.txtCity = new System.Windows.Forms.TextBox();
             this.lblCity = new System.Windows.Forms.Label();
             this.txtSSN = new System.Windows.Forms.TextBox();
             this.lblSSN = new System.Windows.Forms.Label();
-            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.txtZip = new System.Windows.Forms.TextBox();
             this.lblZip = new System.Windows.Forms.Label();
             this.txtExempt = new System.Windows.Forms.TextBox();
             this.lblExempt = new System.Windows.Forms.Label();
@@ -117,12 +117,12 @@
             this.txtAddr.Size = new System.Drawing.Size(126, 20);
             this.txtAddr.TabIndex = 4;
             // 
-            // textBox4
+            // txtCity
             // 
-            this.textBox4.Location = new System.Drawing.Point(128, 117);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(126, 20);
-            this.textBox4.TabIndex = 6;
+            this.txtCity.Location = new System.Drawing.Point(128, 117);
+            this.txtCity.Name = "txtCity";
+            this.txtCity.Size = new System.Drawing.Size(126, 20);
+            this.txtCity.TabIndex = 6;
             // 
             // lblCity
             // 
@@ -149,12 +149,12 @@
             this.lblSSN.TabIndex = 11;
             this.lblSSN.Text = "SSN";
             // 
-            // textBox6
+            // txtZip
             // 
-            this.textBox6.Location = new System.Drawing.Point(128, 186);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(126, 20);
-            this.textBox6.TabIndex = 10;
+            this.txtZip.Location = new System.Drawing.Point(128, 186);
+            this.txtZip.Name = "txtZip";
+            this.txtZip.Size = new System.Drawing.Size(126, 20);
+            this.txtZip.TabIndex = 10;
             // 
             // lblZip
             // 
@@ -496,9 +496,9 @@
             this.Controls.Add(this.lblExempt);
             this.Controls.Add(this.txtSSN);
             this.Controls.Add(this.lblSSN);
-            this.Controls.Add(this.textBox6);
+            this.Controls.Add(this.txtZip);
             this.Controls.Add(this.lblZip);
-            this.Controls.Add(this.textBox4);
+            this.Controls.Add(this.txtCity);
             this.Controls.Add(this.lblCity);
             this.Controls.Add(this.txtAddr);
             this.Controls.Add(this.lblAddr);
@@ -520,11 +520,11 @@
         private System.Windows.Forms.TextBox txtName;
         private System.Windows.Forms.Label lblAddr;
         private System.Windows.Forms.TextBox txtAddr;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox txtCity;
         private System.Windows.Forms.Label lblCity;
         private System.Windows.Forms.TextBox txtSSN;
         private System.Windows.Forms.Label lblSSN;
-        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.TextBox txtZip;
         private System.Windows.Forms.Label lblZip;
         private System.Windows.Forms.TextBox txtExempt;
         private System.Windows.Forms.Label lblExempt;
