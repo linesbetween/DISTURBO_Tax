@@ -153,6 +153,14 @@ namespace DISTURBO_Tax
                 return false;
             }
 
+            // Check if positive 
+            string pos = IsPositiveAll();
+            if (pos != "")
+            {
+                MessageBox.Show(pos, "Entry Error");
+                return false;
+            }
+
             return true;
         }
         
@@ -252,6 +260,26 @@ namespace DISTURBO_Tax
             return msg;
         }
 
+        public string IsPositive(TextBox text, string name)
+        {
+            if (Convert.ToDouble(txtEarn.Text) < 0)
+                return name + " must be positive. \n";
+            else
+                return "";
+        }
+
+        public string IsPositiveAll()
+        {
+            string msg = IsPositive(txtExempt, "Exepmtion") +
+                         IsPositive(txtEarn, "Gross Earning") +
+                         IsPositive(txtWithheld, "Federal tax withheld") /*+
+                         IsPositive(txtEstate, "Estate tax") +
+                         IsPositive(txtExcise, "Excise tax") +
+                         IsPositive(txtMed, "Medical cost")*/;
+
+            return msg;
+        }
+
 
         /*
        *  Calculate
@@ -266,7 +294,11 @@ namespace DISTURBO_Tax
             withheldW2 = withheld; 
             adjGross = round ((float) (earn - exempt*1000 - estate*0.25 - excise*0.25 - med*0.08 + capital*0.15));
 
-            if (adjGross > 0 && adjGross <=999.99 )
+            if (adjGross <= 0)
+            {
+                tax = (float)0;
+            }
+            else if (adjGross > 0 && adjGross <=999.99 )
             {
                 tax = (float)(adjGross * 0.1); 
             }
@@ -345,6 +377,8 @@ namespace DISTURBO_Tax
         {
             formList.list = list;
         }
+
+ 
             
     }
 
@@ -372,8 +406,8 @@ namespace DISTURBO_Tax
 
         public string toString()
         {
-            return ssn + "    " + name + "    " + String.Format("{0:c}",owed) + "    " 
-                + String.Format("{0:c}",refund) + "\n";
+            return ssn.PadRight(15) + name.PadRight(40) + (String.Format("{0:c}",owed)).PadRight(30)
+                + (String.Format("{0:c}",refund)).PadRight(30) + "\n";
         }
     }
 

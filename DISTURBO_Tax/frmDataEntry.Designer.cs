@@ -60,6 +60,7 @@
             this.lblPerson = new System.Windows.Forms.Label();
             this.txtZip = new System.Windows.Forms.MaskedTextBox();
             this.txtSSN = new System.Windows.Forms.MaskedTextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnExit
@@ -77,9 +78,9 @@
             this.lblName.AutoSize = true;
             this.lblName.Location = new System.Drawing.Point(55, 49);
             this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(35, 13);
+            this.lblName.Size = new System.Drawing.Size(39, 13);
             this.lblName.TabIndex = 1;
-            this.lblName.Text = "Name";
+            this.lblName.Text = "Name*";
             // 
             // txtName
             // 
@@ -93,9 +94,9 @@
             this.lblAddr.AutoSize = true;
             this.lblAddr.Location = new System.Drawing.Point(55, 83);
             this.lblAddr.Name = "lblAddr";
-            this.lblAddr.Size = new System.Drawing.Size(45, 13);
+            this.lblAddr.Size = new System.Drawing.Size(49, 13);
             this.lblAddr.TabIndex = 3;
-            this.lblAddr.Text = "Address";
+            this.lblAddr.Text = "Address*";
             // 
             // txtAddr
             // 
@@ -116,27 +117,27 @@
             this.lblCity.AutoSize = true;
             this.lblCity.Location = new System.Drawing.Point(55, 120);
             this.lblCity.Name = "lblCity";
-            this.lblCity.Size = new System.Drawing.Size(24, 13);
+            this.lblCity.Size = new System.Drawing.Size(28, 13);
             this.lblCity.TabIndex = 5;
-            this.lblCity.Text = "City";
+            this.lblCity.Text = "City*";
             // 
             // lblSSN
             // 
             this.lblSSN.AutoSize = true;
             this.lblSSN.Location = new System.Drawing.Point(55, 221);
             this.lblSSN.Name = "lblSSN";
-            this.lblSSN.Size = new System.Drawing.Size(29, 13);
+            this.lblSSN.Size = new System.Drawing.Size(33, 13);
             this.lblSSN.TabIndex = 11;
-            this.lblSSN.Text = "SSN";
+            this.lblSSN.Text = "SSN*";
             // 
             // lblZip
             // 
             this.lblZip.AutoSize = true;
             this.lblZip.Location = new System.Drawing.Point(55, 189);
             this.lblZip.Name = "lblZip";
-            this.lblZip.Size = new System.Drawing.Size(50, 13);
+            this.lblZip.Size = new System.Drawing.Size(54, 13);
             this.lblZip.TabIndex = 9;
-            this.lblZip.Text = "Zip Code";
+            this.lblZip.Text = "Zip Code*";
             // 
             // txtExempt
             // 
@@ -150,9 +151,9 @@
             this.lblExempt.AutoSize = true;
             this.lblExempt.Location = new System.Drawing.Point(55, 258);
             this.lblExempt.Name = "lblExempt";
-            this.lblExempt.Size = new System.Drawing.Size(61, 13);
+            this.lblExempt.Size = new System.Drawing.Size(65, 13);
             this.lblExempt.TabIndex = 13;
-            this.lblExempt.Text = "Exemptions";
+            this.lblExempt.Text = "Exemptions*";
             // 
             // btnCalc
             // 
@@ -260,9 +261,9 @@
             this.lblWithheld.AutoSize = true;
             this.lblWithheld.Location = new System.Drawing.Point(316, 83);
             this.lblWithheld.Name = "lblWithheld";
-            this.lblWithheld.Size = new System.Drawing.Size(91, 13);
+            this.lblWithheld.Size = new System.Drawing.Size(120, 13);
             this.lblWithheld.TabIndex = 19;
-            this.lblWithheld.Text = "Fed Tax Withheld";
+            this.lblWithheld.Text = "Tax Withheld (Positive)*";
             // 
             // label11
             // 
@@ -279,9 +280,9 @@
             this.lblState.AutoSize = true;
             this.lblState.Location = new System.Drawing.Point(55, 152);
             this.lblState.Name = "lblState";
-            this.lblState.Size = new System.Drawing.Size(32, 13);
+            this.lblState.Size = new System.Drawing.Size(36, 13);
             this.lblState.TabIndex = 31;
-            this.lblState.Text = "State";
+            this.lblState.Text = "State*";
             // 
             // cmbState
             // 
@@ -303,9 +304,9 @@
             this.lblEarning.AutoSize = true;
             this.lblEarning.Location = new System.Drawing.Point(316, 45);
             this.lblEarning.Name = "lblEarning";
-            this.lblEarning.Size = new System.Drawing.Size(73, 13);
+            this.lblEarning.Size = new System.Drawing.Size(123, 13);
             this.lblEarning.TabIndex = 33;
-            this.lblEarning.Text = "Gross Earning";
+            this.lblEarning.Text = "Gross Earning (Positive)*";
             // 
             // lblPerson
             // 
@@ -334,12 +335,23 @@
             this.txtSSN.Size = new System.Drawing.Size(68, 20);
             this.txtSSN.TabIndex = 50;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(58, 294);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(180, 16);
+            this.label1.TabIndex = 51;
+            this.label1.Text = "Fields with * are required";
+            // 
             // frmDataEntry
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(638, 340);
             this.ControlBox = false;
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.txtSSN);
             this.Controls.Add(this.txtZip);
             this.Controls.Add(this.lblPerson);
@@ -415,5 +427,6 @@
         private System.Windows.Forms.Label lblPerson;
         private System.Windows.Forms.MaskedTextBox txtZip;
         private System.Windows.Forms.MaskedTextBox txtSSN;
+        private System.Windows.Forms.Label label1;
     }
 }

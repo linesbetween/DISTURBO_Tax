@@ -21,7 +21,7 @@ namespace DISTURBO_Tax
 
         private void frmList_Load(object sender, EventArgs e)
         {
-            txtList.AppendText("SSN              Name           Owed          Refund \n");
+            txtList.AppendText("SSN".PadRight(20) + "Name".PadRight(40) + "Owed".PadRight(35) + "Refund".PadRight(35) + "\n");
             for (int i = 0; i < list.Count; i++)
             {
                 txtList.AppendText(list[i].toString());
