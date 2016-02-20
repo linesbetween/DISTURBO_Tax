@@ -29,13 +29,17 @@ namespace DISTURBO_Tax
         }
 
         private void frmDataEntry_Load(object sender, EventArgs e)
-        {
+        {   
+            //initialize drop down menu
             for (int i = 0; i <= 50; i++)
             {
                 cmbState.Items.Add(state[i]);
             }
+
+           
         }
 
+      
         private void btnExit_Click(object sender, EventArgs e)
         {
             //Exit confirm
@@ -61,7 +65,7 @@ namespace DISTURBO_Tax
 
                 //get values from text box
                 string name = txtName.Text;
-                int ssn = Convert.ToInt32(txtSSN.Text);
+                string ssn = txtSSN.Text;
 
                 int exempt = Convert.ToInt32(txtExempt.Text);
                 float earn = (float)Convert.ToDouble(txtEarn.Text);
@@ -74,14 +78,14 @@ namespace DISTURBO_Tax
                 //calculate and assign values to resultset 
                 resultSet = calculate(exempt, earn, withheld, capital, estate, excise, med);
 
-                /* display result in this form*/
+                /* display result in this form
                 txtBoxAdjGross.Text = Convert.ToString(resultSet.getAdjGross());
                 txtBoxTax.Text = Convert.ToString(resultSet.getTax());
                 txtBoxWithheld.Text = Convert.ToString(resultSet.getWithheld());
                 txtBoxPenalty.Text = Convert.ToString(resultSet.getPenalty());
                 txtBoxOwed.Text = Convert.ToString(resultSet.getOwed());
                 txtBoxRefund.Text = Convert.ToString(resultSet.getRefund());
-
+                */
                 //send result to formResult to display
                 frmResult formResult = new frmResult();
 
@@ -114,12 +118,12 @@ namespace DISTURBO_Tax
             //pass list to formList
             passList(formList, sortedList);
 
-            /*display list in this form*/
+            /*display list in this form
             for (int i = 0; i < sortedList.Count;i++ )
             {
                 txtList.AppendText(sortedList[i].toString());
             }
-
+            */
             
             formList.ShowDialog();
         }
@@ -194,6 +198,16 @@ namespace DISTURBO_Tax
         }
 
         public string IsPresent(TextBox textBox, string name)
+        {
+            if (textBox.Text == "")
+            {
+                string msg = name + " is required.\n";
+                return msg;
+            }
+            return "";
+        }
+
+        public string IsPresent(MaskedTextBox textBox, string name)
         {
             if (textBox.Text == "")
             {
@@ -311,6 +325,11 @@ namespace DISTURBO_Tax
             return i;
         }
 
+        /*
+       *  Passing data
+       */
+
+
         private List<Record> sortSSN(List<Record> list)
         {
             List<Record> sorted = list;
@@ -336,12 +355,12 @@ namespace DISTURBO_Tax
 
     public class Record
     {
-        int ssn;
+        string ssn;
         string name;
         int owed;
         int refund;
 
-        public Record(int ssn, string name, int owed, int refund)
+        public Record(string ssn, string name, int owed, int refund)
         {
             this.ssn = ssn;
             this.name = name;
@@ -349,7 +368,7 @@ namespace DISTURBO_Tax
             this.refund = refund;
         }
 
-        public int getSSN() { return ssn; }
+        public string getSSN() { return ssn; }
 
         public string toString()
         {

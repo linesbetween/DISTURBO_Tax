@@ -35,9 +35,7 @@
             this.txtAddr = new System.Windows.Forms.TextBox();
             this.txtCity = new System.Windows.Forms.TextBox();
             this.lblCity = new System.Windows.Forms.Label();
-            this.txtSSN = new System.Windows.Forms.TextBox();
             this.lblSSN = new System.Windows.Forms.Label();
-            this.txtZip = new System.Windows.Forms.TextBox();
             this.lblZip = new System.Windows.Forms.Label();
             this.txtExempt = new System.Windows.Forms.TextBox();
             this.lblExempt = new System.Windows.Forms.Label();
@@ -60,19 +58,8 @@
             this.txtEarn = new System.Windows.Forms.TextBox();
             this.lblEarning = new System.Windows.Forms.Label();
             this.lblPerson = new System.Windows.Forms.Label();
-            this.txtBoxRefund = new System.Windows.Forms.TextBox();
-            this.lblRefund = new System.Windows.Forms.Label();
-            this.txtBoxOwed = new System.Windows.Forms.TextBox();
-            this.lblOwed = new System.Windows.Forms.Label();
-            this.txtBoxPenalty = new System.Windows.Forms.TextBox();
-            this.lblPenalty = new System.Windows.Forms.Label();
-            this.txtBoxWithheld = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.txtBoxTax = new System.Windows.Forms.TextBox();
-            this.lblTax = new System.Windows.Forms.Label();
-            this.txtBoxAdjGross = new System.Windows.Forms.TextBox();
-            this.lblAdjGross = new System.Windows.Forms.Label();
-            this.txtList = new System.Windows.Forms.TextBox();
+            this.txtZip = new System.Windows.Forms.MaskedTextBox();
+            this.txtSSN = new System.Windows.Forms.MaskedTextBox();
             this.SuspendLayout();
             // 
             // btnExit
@@ -133,13 +120,6 @@
             this.lblCity.TabIndex = 5;
             this.lblCity.Text = "City";
             // 
-            // txtSSN
-            // 
-            this.txtSSN.Location = new System.Drawing.Point(128, 219);
-            this.txtSSN.Name = "txtSSN";
-            this.txtSSN.Size = new System.Drawing.Size(126, 20);
-            this.txtSSN.TabIndex = 12;
-            // 
             // lblSSN
             // 
             this.lblSSN.AutoSize = true;
@@ -148,13 +128,6 @@
             this.lblSSN.Size = new System.Drawing.Size(29, 13);
             this.lblSSN.TabIndex = 11;
             this.lblSSN.Text = "SSN";
-            // 
-            // txtZip
-            // 
-            this.txtZip.Location = new System.Drawing.Point(128, 186);
-            this.txtZip.Name = "txtZip";
-            this.txtZip.Size = new System.Drawing.Size(126, 20);
-            this.txtZip.TabIndex = 10;
             // 
             // lblZip
             // 
@@ -344,135 +317,31 @@
             this.lblPerson.TabIndex = 35;
             this.lblPerson.Text = "Personal Data";
             // 
-            // txtBoxRefund
+            // txtZip
             // 
-            this.txtBoxRefund.Location = new System.Drawing.Point(743, 226);
-            this.txtBoxRefund.Name = "txtBoxRefund";
-            this.txtBoxRefund.ReadOnly = true;
-            this.txtBoxRefund.Size = new System.Drawing.Size(116, 20);
-            this.txtBoxRefund.TabIndex = 47;
+            this.txtZip.Location = new System.Drawing.Point(128, 189);
+            this.txtZip.Mask = "00000";
+            this.txtZip.Name = "txtZip";
+            this.txtZip.Size = new System.Drawing.Size(37, 20);
+            this.txtZip.TabIndex = 49;
+            this.txtZip.ValidatingType = typeof(int);
             // 
-            // lblRefund
+            // txtSSN
             // 
-            this.lblRefund.AutoSize = true;
-            this.lblRefund.Location = new System.Drawing.Point(581, 226);
-            this.lblRefund.Name = "lblRefund";
-            this.lblRefund.Size = new System.Drawing.Size(124, 13);
-            this.lblRefund.TabIndex = 46;
-            this.lblRefund.Text = "Refund Due to Taxpayer";
-            // 
-            // txtBoxOwed
-            // 
-            this.txtBoxOwed.Location = new System.Drawing.Point(743, 187);
-            this.txtBoxOwed.Name = "txtBoxOwed";
-            this.txtBoxOwed.ReadOnly = true;
-            this.txtBoxOwed.Size = new System.Drawing.Size(116, 20);
-            this.txtBoxOwed.TabIndex = 45;
-            // 
-            // lblOwed
-            // 
-            this.lblOwed.AutoSize = true;
-            this.lblOwed.Location = new System.Drawing.Point(581, 187);
-            this.lblOwed.Name = "lblOwed";
-            this.lblOwed.Size = new System.Drawing.Size(115, 13);
-            this.lblOwed.TabIndex = 44;
-            this.lblOwed.Text = "Tax Owed to  Fed Gov";
-            // 
-            // txtBoxPenalty
-            // 
-            this.txtBoxPenalty.Location = new System.Drawing.Point(743, 150);
-            this.txtBoxPenalty.Name = "txtBoxPenalty";
-            this.txtBoxPenalty.ReadOnly = true;
-            this.txtBoxPenalty.Size = new System.Drawing.Size(116, 20);
-            this.txtBoxPenalty.TabIndex = 43;
-            // 
-            // lblPenalty
-            // 
-            this.lblPenalty.AutoSize = true;
-            this.lblPenalty.Location = new System.Drawing.Point(581, 150);
-            this.lblPenalty.Name = "lblPenalty";
-            this.lblPenalty.Size = new System.Drawing.Size(42, 13);
-            this.lblPenalty.TabIndex = 42;
-            this.lblPenalty.Text = "Penalty";
-            // 
-            // txtBoxWithheld
-            // 
-            this.txtBoxWithheld.Location = new System.Drawing.Point(743, 115);
-            this.txtBoxWithheld.Name = "txtBoxWithheld";
-            this.txtBoxWithheld.ReadOnly = true;
-            this.txtBoxWithheld.Size = new System.Drawing.Size(116, 20);
-            this.txtBoxWithheld.TabIndex = 41;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(581, 115);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(121, 13);
-            this.label1.TabIndex = 40;
-            this.label1.Text = "Amount of Tax Withheld";
-            // 
-            // txtBoxTax
-            // 
-            this.txtBoxTax.Location = new System.Drawing.Point(743, 80);
-            this.txtBoxTax.Name = "txtBoxTax";
-            this.txtBoxTax.ReadOnly = true;
-            this.txtBoxTax.Size = new System.Drawing.Size(116, 20);
-            this.txtBoxTax.TabIndex = 39;
-            // 
-            // lblTax
-            // 
-            this.lblTax.AutoSize = true;
-            this.lblTax.Location = new System.Drawing.Point(581, 80);
-            this.lblTax.Name = "lblTax";
-            this.lblTax.Size = new System.Drawing.Size(76, 13);
-            this.lblTax.TabIndex = 38;
-            this.lblTax.Text = "Amount of Tax";
-            // 
-            // txtBoxAdjGross
-            // 
-            this.txtBoxAdjGross.Location = new System.Drawing.Point(743, 42);
-            this.txtBoxAdjGross.Name = "txtBoxAdjGross";
-            this.txtBoxAdjGross.ReadOnly = true;
-            this.txtBoxAdjGross.Size = new System.Drawing.Size(116, 20);
-            this.txtBoxAdjGross.TabIndex = 37;
-            // 
-            // lblAdjGross
-            // 
-            this.lblAdjGross.AutoSize = true;
-            this.lblAdjGross.Location = new System.Drawing.Point(581, 42);
-            this.lblAdjGross.Name = "lblAdjGross";
-            this.lblAdjGross.Size = new System.Drawing.Size(78, 13);
-            this.lblAdjGross.TabIndex = 36;
-            this.lblAdjGross.Text = "Adjusted Gross";
-            // 
-            // txtList
-            // 
-            this.txtList.Location = new System.Drawing.Point(58, 335);
-            this.txtList.Multiline = true;
-            this.txtList.Name = "txtList";
-            this.txtList.Size = new System.Drawing.Size(508, 199);
-            this.txtList.TabIndex = 48;
+            this.txtSSN.Location = new System.Drawing.Point(128, 223);
+            this.txtSSN.Mask = "000-00-0000";
+            this.txtSSN.Name = "txtSSN";
+            this.txtSSN.Size = new System.Drawing.Size(68, 20);
+            this.txtSSN.TabIndex = 50;
             // 
             // frmDataEntry
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(884, 546);
+            this.ClientSize = new System.Drawing.Size(638, 340);
             this.ControlBox = false;
-            this.Controls.Add(this.txtList);
-            this.Controls.Add(this.txtBoxRefund);
-            this.Controls.Add(this.lblRefund);
-            this.Controls.Add(this.txtBoxOwed);
-            this.Controls.Add(this.lblOwed);
-            this.Controls.Add(this.txtBoxPenalty);
-            this.Controls.Add(this.lblPenalty);
-            this.Controls.Add(this.txtBoxWithheld);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.txtBoxTax);
-            this.Controls.Add(this.lblTax);
-            this.Controls.Add(this.txtBoxAdjGross);
-            this.Controls.Add(this.lblAdjGross);
+            this.Controls.Add(this.txtSSN);
+            this.Controls.Add(this.txtZip);
             this.Controls.Add(this.lblPerson);
             this.Controls.Add(this.txtEarn);
             this.Controls.Add(this.lblEarning);
@@ -494,9 +363,7 @@
             this.Controls.Add(this.btnCalc);
             this.Controls.Add(this.txtExempt);
             this.Controls.Add(this.lblExempt);
-            this.Controls.Add(this.txtSSN);
             this.Controls.Add(this.lblSSN);
-            this.Controls.Add(this.txtZip);
             this.Controls.Add(this.lblZip);
             this.Controls.Add(this.txtCity);
             this.Controls.Add(this.lblCity);
@@ -522,9 +389,7 @@
         private System.Windows.Forms.TextBox txtAddr;
         private System.Windows.Forms.TextBox txtCity;
         private System.Windows.Forms.Label lblCity;
-        private System.Windows.Forms.TextBox txtSSN;
         private System.Windows.Forms.Label lblSSN;
-        private System.Windows.Forms.TextBox txtZip;
         private System.Windows.Forms.Label lblZip;
         private System.Windows.Forms.TextBox txtExempt;
         private System.Windows.Forms.Label lblExempt;
@@ -547,18 +412,7 @@
         private System.Windows.Forms.TextBox txtEarn;
         private System.Windows.Forms.Label lblEarning;
         private System.Windows.Forms.Label lblPerson;
-        private System.Windows.Forms.TextBox txtBoxRefund;
-        private System.Windows.Forms.Label lblRefund;
-        private System.Windows.Forms.TextBox txtBoxOwed;
-        private System.Windows.Forms.Label lblOwed;
-        private System.Windows.Forms.TextBox txtBoxPenalty;
-        private System.Windows.Forms.Label lblPenalty;
-        private System.Windows.Forms.TextBox txtBoxWithheld;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txtBoxTax;
-        private System.Windows.Forms.Label lblTax;
-        private System.Windows.Forms.TextBox txtBoxAdjGross;
-        private System.Windows.Forms.Label lblAdjGross;
-        private System.Windows.Forms.TextBox txtList;
+        private System.Windows.Forms.MaskedTextBox txtZip;
+        private System.Windows.Forms.MaskedTextBox txtSSN;
     }
 }
