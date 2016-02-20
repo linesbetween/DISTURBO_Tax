@@ -44,22 +44,23 @@
             // 
             // txtList
             // 
-            this.txtList.Enabled = false;
             this.txtList.Location = new System.Drawing.Point(25, 38);
             this.txtList.Multiline = true;
             this.txtList.Name = "txtList";
-            this.txtList.Size = new System.Drawing.Size(229, 270);
+            this.txtList.ReadOnly = true;
+            this.txtList.Size = new System.Drawing.Size(497, 270);
             this.txtList.TabIndex = 1;
             // 
             // frmList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(278, 382);
+            this.ClientSize = new System.Drawing.Size(554, 382);
             this.ControlBox = false;
             this.Controls.Add(this.txtList);
             this.Controls.Add(this.btnBack);
             this.Name = "frmList";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "frmList";
             this.Load += new System.EventHandler(this.frmList_Load);
             this.ResumeLayout(false);

@@ -178,6 +178,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmResult";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "frmResult";
             this.Load += new System.EventHandler(this.frmResult_Load);
             this.ResumeLayout(false);

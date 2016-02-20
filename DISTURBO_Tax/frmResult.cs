@@ -24,11 +24,11 @@ namespace DISTURBO_Tax
         {
             //this.Tag.getTax() - NOT WORKING
             txtBoxAdjGross.Text = String.Format("{0:c}",resultSet.getAdjGross());
-            txtBoxTax.Text = String.Format("{0:c}",Convert.ToString(resultSet.getTax()));
-            txtBoxWithheld.Text = String.Format("{0:c}", Convert.ToString(resultSet.getWithheld()));
-            txtBoxPenalty.Text = String.Format("{0:c}",Convert.ToString(resultSet.getPenalty()));
-            txtBoxOwed.Text = String.Format("{0:c}",Convert.ToString(resultSet.getOwed()));
-            txtBoxRefund.Text = String.Format("{0:c}",Convert.ToString(resultSet.getRefund()));
+            txtBoxTax.Text = String.Format("{0:c}",resultSet.getTax());
+            txtBoxWithheld.Text = String.Format("{0:c}", resultSet.getWithheld());
+            txtBoxPenalty.Text = String.Format("{0:c}",resultSet.getPenalty());
+            txtBoxOwed.Text = String.Format("{0:c}",resultSet.getOwed());
+            txtBoxRefund.Text = String.Format("{0:c}",resultSet.getRefund());
         }
 
         private void btnBack_Click(object sender, EventArgs e)

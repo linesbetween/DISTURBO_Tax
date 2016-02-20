@@ -77,6 +77,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmWelcom";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "DISTURBO TAX";
             this.ResumeLayout(false);
             this.PerformLayout();

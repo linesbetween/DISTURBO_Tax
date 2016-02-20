@@ -373,6 +373,7 @@
             this.Controls.Add(this.lblName);
             this.Controls.Add(this.btnExit);
             this.Name = "frmDataEntry";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "DISTURBO TAX";
             this.Load += new System.EventHandler(this.frmDataEntry_Load);
             this.ResumeLayout(false);

@@ -372,7 +372,8 @@ namespace DISTURBO_Tax
 
         public string toString()
         {
-            return ssn + "    " + name + "    " + owed + "    " + refund + "\n";
+            return ssn + "    " + name + "    " + String.Format("{0:c}",owed) + "    " 
+                + String.Format("{0:c}",refund) + "\n";
         }
     }
 
