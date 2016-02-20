@@ -27,7 +27,7 @@ namespace DISTURBO_Tax
                 txtList.AppendText(list[i].toString());
             }
         }
-
+         
         private void btnBack_Click(object sender, EventArgs e)
         {
             this.Visible = false;
