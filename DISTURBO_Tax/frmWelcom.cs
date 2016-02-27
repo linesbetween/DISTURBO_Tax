@@ -1,4 +1,13 @@
-﻿using System;
+﻿
+// This program takes user input, 
+// then calculates tax to be paid or refund
+// Print a list of user record
+// frmWelcome.cs
+// CIT 287 Hanfei Xu
+// Feb 20 2016
+
+
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
